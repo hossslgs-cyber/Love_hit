@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,13 @@
     <meta property="og:type" content="website">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             background: linear-gradient(180deg, #1a001a 0%, #0d000d 50%, #050005 100%);
             min-height: 100vh;
@@ -23,7 +23,7 @@
             font-family: 'Fredoka', sans-serif;
             position: relative;
         }
-
+        
         /* Animated heart background */
         .hearts-bg {
             position: fixed;
@@ -34,19 +34,19 @@
             pointer-events: none;
             z-index: 0;
         }
-
+        
         .heart {
             position: absolute;
             color: rgba(255, 20, 147, 0.12);
             animation: floatHeart 10s ease-in-out infinite;
             font-size: 16px;
         }
-
+        
         @keyframes floatHeart {
             0%, 100% { transform: translateY(0) scale(1); opacity: 0.12; }
             50% { transform: translateY(-20px) scale(1.1); opacity: 0.2; }
         }
-
+        
         /* Glowing orbs */
         .orb {
             position: absolute;
@@ -54,7 +54,7 @@
             filter: blur(40px);
             animation: orbFloat 6s ease-in-out infinite;
         }
-
+        
         .orb-1 {
             width: 200px;
             height: 200px;
@@ -63,7 +63,7 @@
             left: 20%;
             animation-delay: 0s;
         }
-
+        
         .orb-2 {
             width: 150px;
             height: 150px;
@@ -72,7 +72,7 @@
             right: 15%;
             animation-delay: 2s;
         }
-
+        
         .orb-3 {
             width: 100px;
             height: 100px;
@@ -81,13 +81,13 @@
             left: 10%;
             animation-delay: 4s;
         }
-
+        
         @keyframes orbFloat {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(20px, -20px) scale(1.1); }
             66% { transform: translate(-10px, 10px) scale(0.9); }
         }
-
+        
         /* Language Toggle */
         .lang-toggle {
             position: fixed;
@@ -97,7 +97,7 @@
             display: flex;
             gap: 8px;
         }
-
+        
         .lang-btn {
             background: rgba(255, 20, 147, 0.3);
             border: 2px solid rgba(255, 20, 147, 0.5);
@@ -110,17 +110,17 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
         }
-
+        
         .lang-btn.active {
             background: linear-gradient(135deg, #ff1493, #ff69b4);
             border-color: #ff1493;
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
         }
-
+        
         .lang-btn:hover {
             transform: scale(1.05);
         }
-
+        
         /* Header */
         .header {
             text-align: center;
@@ -128,7 +128,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .header h1 {
             color: #fff;
             font-family: 'Pacifico', cursive;
@@ -136,7 +136,7 @@
             text-shadow: 0 0 20px rgba(255,20,147,0.8), 0 0 40px rgba(255,20,147,0.4);
             letter-spacing: 3px;
         }
-
+        
         /* Main card */
         .main-card {
             background: rgba(0, 0, 0, 0.6);
@@ -154,14 +154,14 @@
             justify-content: center;
             overflow: hidden;
         }
-
+        
         /* Floating stickers container */
         .stickers-container {
             position: relative;
             width: 100%;
             height: 220px;
         }
-
+        
         /* Glowing sun/moon */
         .glow-sun {
             position: absolute;
@@ -176,12 +176,12 @@
             animation: pulseGlow 3s ease-in-out infinite;
             z-index: 1;
         }
-
+        
         @keyframes pulseGlow {
             0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
             50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
         }
-
+        
         /* Text bubbles */
         .text-bubble {
             position: absolute;
@@ -192,14 +192,14 @@
             z-index: 5;
             text-align: center;
         }
-
+        
         .bubble-1 {
             top: 8%;
             left: 10%;
             font-size: 1.2rem;
             animation-delay: 0s;
         }
-
+        
         .bubble-2 {
             top: 12%;
             right: 8%;
@@ -207,40 +207,40 @@
             color: #ff69b4;
             animation-delay: 1s;
         }
-
+        
         .bubble-3 {
             bottom: 18%;
             right: 8%;
             font-size: 1.2rem;
             animation-delay: 2s;
         }
-
+        
         .bubble-4 {
             bottom: 12%;
             left: 15%;
             font-size: 1.1rem;
             animation-delay: 0.5s;
         }
-
+        
         .bubble-5 {
             top: 40%;
             left: 5%;
             font-size: 1rem;
             animation-delay: 1.5s;
         }
-
+        
         .bubble-6 {
             top: 35%;
             right: 5%;
             font-size: 1rem;
             animation-delay: 2.5s;
         }
-
+        
         @keyframes floatText {
             0%, 100% { transform: translateY(0) rotate(-2deg); }
             50% { transform: translateY(-15px) rotate(2deg); }
         }
-
+        
         /* Character stickers - clickable */
         .sticker {
             position: absolute;
@@ -253,22 +253,22 @@
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
-
+        
         .sticker:hover {
             transform: scale(1.2);
         }
-
+        
         .sticker-1 { top: 25%; left: 15%; animation-delay: 0.3s; }
         .sticker-2 { top: 30%; right: 20%; animation-delay: 0.6s; }
         .sticker-3 { bottom: 20%; left: 30%; animation-delay: 0.9s; }
         .sticker-4 { top: 10%; left: 40%; animation-delay: 1.2s; }
         .sticker-5 { bottom: 30%; right: 10%; animation-delay: 1.8s; }
-
+        
         @keyframes bounceSticker {
             0%, 100% { transform: translateY(0) scale(1); }
             50% { transform: translateY(-10px) scale(1.1); }
         }
-
+        
         /* Heart decorations */
         .deco-heart {
             position: absolute;
@@ -277,17 +277,17 @@
             animation: heartBeat 2s ease-in-out infinite;
             z-index: 4;
         }
-
+        
         .dh-1 { top: 5%; left: 45%; animation-delay: 0s; }
         .dh-2 { top: 20%; right: 5%; animation-delay: 0.5s; }
         .dh-3 { bottom: 30%; left: 5%; animation-delay: 1s; }
         .dh-4 { top: 55%; right: 3%; animation-delay: 1.2s; }
-
+        
         @keyframes heartBeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.3); }
         }
-
+        
         /* Sparkle effect */
         .sparkle {
             position: absolute;
@@ -299,12 +299,12 @@
             animation: sparkleAnim 2s ease-in-out infinite;
             z-index: 3;
         }
-
+        
         @keyframes sparkleAnim {
             0%, 100% { opacity: 0; transform: scale(0); }
             50% { opacity: 1; transform: scale(1); }
         }
-
+        
         /* Photo Modal */
         .modal-overlay {
             position: fixed;
@@ -321,12 +321,12 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
+        
         .modal-overlay.active {
             display: flex;
             opacity: 1;
         }
-
+        
         .modal-content {
             position: relative;
             max-width: 90%;
@@ -338,18 +338,18 @@
             transform: scale(0.8);
             transition: transform 0.3s ease;
         }
-
+        
         .modal-overlay.active .modal-content {
             transform: scale(1);
         }
-
+        
         .modal-content img {
             display: block;
             max-width: 100%;
             max-height: 70vh;
             object-fit: cover;
         }
-
+        
         .modal-close {
             position: absolute;
             top: -40px;
@@ -362,7 +362,7 @@
             padding: 5px;
             z-index: 10;
         }
-
+        
         .modal-caption {
             position: absolute;
             bottom: 0;
@@ -375,7 +375,7 @@
             font-size: 1.3rem;
             text-align: center;
         }
-
+        
         .modal-hint {
             position: absolute;
             bottom: 20px;
@@ -385,7 +385,7 @@
             font-size: 0.8rem;
             font-family: 'Fredoka', sans-serif;
         }
-
+        
         /* Love Quotes Section */
         .quotes-section {
             margin: 15px 20px;
@@ -393,7 +393,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .quote-card {
             background: rgba(255, 20, 147, 0.08);
             border: 1px solid rgba(255, 20, 147, 0.15);
@@ -407,24 +407,24 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .quote-card:hover {
             border-color: rgba(255, 20, 147, 0.25);
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.1);
         }
-
+        
         .quote-card:nth-child(2) { animation-delay: 0.15s; }
         .quote-card:nth-child(3) { animation-delay: 0.3s; }
         .quote-card:nth-child(4) { animation-delay: 0.45s; }
         .quote-card:nth-child(5) { animation-delay: 0.6s; }
         .quote-card:nth-child(6) { animation-delay: 0.75s; }
-
+        
         .quote-icon {
             font-size: 1.2rem;
             margin-bottom: 10px;
             opacity: 0.6;
         }
-
+        
         .poem-author {
             color: #ff69b4;
             font-family: 'Fredoka', sans-serif;
@@ -435,7 +435,7 @@
             margin-bottom: 10px;
             opacity: 0.7;
         }
-
+        
         .quote-text {
             color: #f0d5e0;
             font-family: 'Cormorant Garamond', serif;
@@ -445,14 +445,14 @@
             text-shadow: 0 0 6px rgba(255, 20, 147, 0.15);
             margin-bottom: 10px;
         }
-
+        
         .quote-divider {
             color: rgba(255, 20, 147, 0.3);
             font-size: 0.8rem;
             margin: 8px 0;
             letter-spacing: 6px;
         }
-
+        
         .quote-translation {
             color: #c080a0;
             font-family: 'Cormorant Garamond', serif;
@@ -461,12 +461,12 @@
             opacity: 0.75;
             line-height: 1.5;
         }
-
+        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         /* Share button */
         .share-section {
             text-align: center;
@@ -474,7 +474,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .share-btn {
             background: linear-gradient(135deg, #ff1493, #ff69b4);
             color: #fff;
@@ -488,16 +488,16 @@
             transition: all 0.3s ease;
             margin: 5px;
         }
-
+        
         .share-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(255,20,147,0.6);
         }
-
+        
         .share-btn:active {
             transform: scale(0.95);
         }
-
+        
         /* Bottom hearts decoration */
         .bottom-hearts {
             position: fixed;
@@ -513,18 +513,18 @@
             z-index: 5;
             pointer-events: none;
         }
-
+        
         .bottom-heart {
             color: rgba(255,20,147,0.2);
             font-size: 1rem;
             animation: sway 4s ease-in-out infinite;
         }
-
+        
         @keyframes sway {
             0%, 100% { transform: translateX(0); }
             50% { transform: translateX(8px); }
         }
-
+        
         /* Responsive */
         @media (max-width: 480px) {
             .header h1 { font-size: 1.6rem; }
@@ -548,32 +548,32 @@
         </div>
         <div class="modal-hint">Tap anywhere to close</div>
     </div>
-
+    
     <!-- Language Toggle -->
     <div class="lang-toggle">
         <button class="lang-btn active" onclick="setLanguage('es')" id="btn-es">🇪🇸 Español</button>
         <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">🇬🇧 English</button>
     </div>
-
+    
     <!-- Background hearts -->
     <div class="hearts-bg" id="heartsBg"></div>
-
+    
     <!-- Glowing orbs -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
-
+    
     <!-- Header -->
     <div class="header">
         <h1>Herbert Dev</h1>
     </div>
-
+    
     <!-- Main love card -->
     <div class="main-card">
         <div class="stickers-container">
             <!-- Glowing sun -->
             <div class="glow-sun"></div>
-
+            
             <!-- Text bubbles -->
             <div class="text-bubble bubble-1" data-es="I Love You" data-en="I Love You">I Love You</div>
             <div class="text-bubble bubble-2" data-es="Amor de mi<br>Vida" data-en="Love of my<br>Life">Amor de mi<br>Vida</div>
@@ -581,20 +581,20 @@
             <div class="text-bubble bubble-4" data-es="Love You<br>Forever" data-en="Love You<br>Forever">Love You<br>Forever</div>
             <div class="text-bubble bubble-5" data-es="Eres mi<br>todo" data-en="You are my<br>everything">Eres mi<br>todo</div>
             <div class="text-bubble bubble-6" data-es="Mi Corazon<br>es tuyo" data-en="My Heart<br>is yours">Mi Corazon<br>es tuyo</div>
-
+            
             <!-- Character stickers - clickable with hidden photos -->
             <div class="sticker sticker-1" onclick="openModal('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600', 'Our first sunset together 🌅')">🌹</div>
             <div class="sticker sticker-2" onclick="openModal('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600', 'The moment I knew 💫')">💕</div>
             <div class="sticker sticker-3" onclick="openModal('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600', 'You are my everything 💖')">🦋</div>
             <div class="sticker sticker-4" onclick="openModal('https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600', 'Forever and always 🌙')">🌙</div>
             <div class="sticker sticker-5" onclick="openModal('https://images.unsplash.com/photo-1504196606672-aef5c9cefc52?w=600', 'My heart beats for you ❤️')">✨</div>
-
+            
             <!-- Decorative hearts -->
             <div class="deco-heart dh-1">💖</div>
             <div class="deco-heart dh-2">💗</div>
             <div class="deco-heart dh-3">💝</div>
             <div class="deco-heart dh-4">💘</div>
-
+            
             <!-- Sparkles -->
             <div class="sparkle" style="top:20%;left:30%;"></div>
             <div class="sparkle" style="top:60%;left:70%;animation-delay:0.5s;"></div>
@@ -603,12 +603,7 @@
             <div class="sparkle" style="top:15%;left:60%;animation-delay:0.8s;"></div>
         </div>
     </div>
-
+    
     <!-- Love Quotes Section - Famous Poems -->
     <div class="quotes-section">
-        <div class="quote-card">
-            <div class="quote-icon">❝</div>
-            <div class="poem-author">Pablo Neruda</div>
-            <div class="quote-text" data-es="Te amo sin saber cómo, ni cuándo, ni de dónde. Te amo directamente sin problemas ni orgullo." data-en="I love you without knowing how, or when, or from where. I love you simply, without problems or pride.">Te amo sin saber cómo, ni cuándo, ni de dónde. Te amo directamente sin problemas ni orgullo.</div>
-            <div class="quote-divider">• • •</div>
-            <div class="quote-translation">I love you without knowing how, or
+        <div cla
