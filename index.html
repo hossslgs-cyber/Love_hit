@@ -19,7 +19,7 @@
         body {
             background: linear-gradient(180deg, #1a001a 0%, #0d000d 50%, #050005 100%);
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             font-family: 'Fredoka', sans-serif;
             position: relative;
         }
@@ -88,10 +88,43 @@
             66% { transform: translate(-10px, 10px) scale(0.9); }
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 20, 147, 0.3);
+            border: 2px solid rgba(255, 20, 147, 0.5);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-color: #ff1493;
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.05);
+        }
+
         /* Header */
         .header {
             text-align: center;
-            padding: 20px;
+            padding: 50px 20px 20px;
             position: relative;
             z-index: 10;
         }
@@ -157,6 +190,7 @@
             text-shadow: 0 0 10px rgba(255,20,147,0.8);
             animation: floatText 4s ease-in-out infinite;
             z-index: 5;
+            text-align: center;
         }
 
         .bubble-1 {
@@ -172,7 +206,6 @@
             font-size: 1.4rem;
             color: #ff69b4;
             animation-delay: 1s;
-            text-align: center;
         }
 
         .bubble-3 {
@@ -217,41 +250,14 @@
             filter: drop-shadow(0 0 10px rgba(255,20,147,0.5));
         }
 
-        .sticker-1 {
-            top: 25%;
-            left: 15%;
-            animation-delay: 0.3s;
-        }
-
-        .sticker-2 {
-            top: 30%;
-            right: 20%;
-            animation-delay: 0.6s;
-        }
-
-        .sticker-3 {
-            bottom: 20%;
-            left: 30%;
-            animation-delay: 0.9s;
-        }
-
-        .sticker-4 {
-            top: 10%;
-            left: 40%;
-            animation-delay: 1.2s;
-        }
-
-        .sticker-5 {
-            bottom: 30%;
-            right: 10%;
-            animation-delay: 1.8s;
-        }
-
-        .sticker-6 {
-            top: 50%;
-            left: 8%;
-            animation-delay: 2.1s;
-        }
+        .sticker-1 { top: 25%; left: 15%; animation-delay: 0.3s; }
+        .sticker-2 { top: 30%; right: 20%; animation-delay: 0.6s; }
+        .sticker-3 { bottom: 20%; left: 30%; animation-delay: 0.9s; }
+        .sticker-4 { top: 10%; left: 40%; animation-delay: 1.2s; }
+        .sticker-5 { bottom: 30%; right: 10%; animation-delay: 1.8s; }
+        .sticker-6 { top: 50%; left: 8%; animation-delay: 2.1s; }
+        .sticker-7 { bottom: 10%; left: 45%; animation-delay: 2.4s; }
+        .sticker-8 { top: 15%; right: 35%; animation-delay: 1.5s; }
 
         @keyframes bounceSticker {
             0%, 100% { transform: translateY(0) scale(1); }
@@ -273,6 +279,8 @@
         .dh-4 { top: 40%; left: 5%; animation-delay: 1.5s; }
         .dh-5 { bottom: 10%; right: 40%; animation-delay: 0.8s; }
         .dh-6 { top: 55%; right: 3%; animation-delay: 1.2s; }
+        .dh-7 { bottom: 45%; left: 2%; animation-delay: 1.7s; }
+        .dh-8 { top: 8%; right: 50%; animation-delay: 0.3s; }
 
         @keyframes heartBeat {
             0%, 100% { transform: scale(1); }
@@ -308,29 +316,56 @@
             background: rgba(255, 20, 147, 0.1);
             border: 1px solid rgba(255, 20, 147, 0.2);
             border-radius: 20px;
-            padding: 15px 20px;
-            margin-bottom: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
             text-align: center;
             backdrop-filter: blur(5px);
             animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
         }
 
         .quote-card:nth-child(2) { animation-delay: 0.2s; }
         .quote-card:nth-child(3) { animation-delay: 0.4s; }
         .quote-card:nth-child(4) { animation-delay: 0.6s; }
         .quote-card:nth-child(5) { animation-delay: 0.8s; }
+        .quote-card:nth-child(6) { animation-delay: 1s; }
+
+        .quote-emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            animation: emojiBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes emojiBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
 
         .quote-text {
             color: #ffb6c1;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.3rem;
-            line-height: 1.5;
+            font-size: 1.4rem;
+            line-height: 1.6;
             text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+            margin-bottom: 8px;
         }
 
-        .quote-emoji {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+        .quote-translation {
+            color: #ff69b4;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            opacity: 0.9;
+            border-top: 1px solid rgba(255, 20, 147, 0.2);
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+
+        .quote-divider {
+            color: rgba(255, 20, 147, 0.5);
+            font-size: 1.2rem;
+            margin: 5px 0;
         }
 
         @keyframes fadeInUp {
@@ -400,11 +435,19 @@
             .header h1 { font-size: 1.5rem; }
             .text-bubble { font-size: 0.95rem !important; }
             .sticker { font-size: 2.5rem; }
-            .quote-text { font-size: 1.1rem; }
+            .quote-text { font-size: 1.2rem; }
+            .quote-translation { font-size: 0.85rem; }
+            .lang-btn { padding: 6px 12px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('es')" id="btn-es">🇪🇸 Español</button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">🇬🇧 English</button>
+    </div>
+
     <!-- Background hearts -->
     <div class="hearts-bg" id="heartsBg"></div>
 
@@ -425,12 +468,12 @@
             <div class="glow-sun"></div>
 
             <!-- Text bubbles -->
-            <div class="text-bubble bubble-1">I Love You</div>
-            <div class="text-bubble bubble-2">Amor de mi<br>Vida</div>
-            <div class="text-bubble bubble-3">Te Amo<br>Mi Cielo</div>
-            <div class="text-bubble bubble-4">Love You<br>Forever</div>
-            <div class="text-bubble bubble-5">Eres mi<br>todo</div>
-            <div class="text-bubble bubble-6">Mi Corazon<br>es tuyo</div>
+            <div class="text-bubble bubble-1" data-es="I Love You" data-en="I Love You">I Love You</div>
+            <div class="text-bubble bubble-2" data-es="Amor de mi<br>Vida" data-en="Love of my<br>Life">Amor de mi<br>Vida</div>
+            <div class="text-bubble bubble-3" data-es="Te Amo<br>Mi Cielo" data-en="I Love You<br>My Sky">Te Amo<br>Mi Cielo</div>
+            <div class="text-bubble bubble-4" data-es="Love You<br>Forever" data-en="Love You<br>Forever">Love You<br>Forever</div>
+            <div class="text-bubble bubble-5" data-es="Eres mi<br>todo" data-en="You are my<br>everything">Eres mi<br>todo</div>
+            <div class="text-bubble bubble-6" data-es="Mi Corazon<br>es tuyo" data-en="My Heart<br>is yours">Mi Corazon<br>es tuyo</div>
 
             <!-- Character stickers -->
             <div class="sticker sticker-1">🕷️</div>
@@ -439,6 +482,8 @@
             <div class="sticker sticker-4">🌹</div>
             <div class="sticker sticker-5">🦋</div>
             <div class="sticker sticker-6">💫</div>
+            <div class="sticker sticker-7">🌙</div>
+            <div class="sticker sticker-8">✨</div>
 
             <!-- Decorative hearts -->
             <div class="deco-heart dh-1">💖</div>
@@ -447,6 +492,8 @@
             <div class="deco-heart dh-4">💘</div>
             <div class="deco-heart dh-5">💓</div>
             <div class="deco-heart dh-6">💞</div>
+            <div class="deco-heart dh-7">💟</div>
+            <div class="deco-heart dh-8">🤍</div>
 
             <!-- Sparkles -->
             <div class="sparkle" style="top:20%;left:30%;"></div>
@@ -455,6 +502,8 @@
             <div class="sparkle" style="top:70%;left:20%;animation-delay:1.5s;"></div>
             <div class="sparkle" style="top:15%;left:60%;animation-delay:0.8s;"></div>
             <div class="sparkle" style="top:80%;left:50%;animation-delay:1.2s;"></div>
+            <div class="sparkle" style="top:35%;left:25%;animation-delay:1.8s;"></div>
+            <div class="sparkle" style="top:55%;left:80%;animation-delay:0.3s;"></div>
         </div>
     </div>
 
@@ -462,23 +511,39 @@
     <div class="quotes-section">
         <div class="quote-card">
             <div class="quote-emoji">💫</div>
-            <div class="quote-text">"Eres la razón por la que sonrío cada día"</div>
+            <div class="quote-text" data-es="Eres la razón por la que sonrío cada día" data-en="You are the reason I smile every day">Eres la razón por la que sonrío cada día</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">You are the reason I smile every day</div>
         </div>
         <div class="quote-card">
             <div class="quote-emoji">🌹</div>
-            <div class="quote-text">"Contigo, cada momento es un sueño hecho realidad"</div>
+            <div class="quote-text" data-es="Contigo, cada momento es un sueño hecho realidad" data-en="With you, every moment is a dream come true">Contigo, cada momento es un sueño hecho realidad</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">With you, every moment is a dream come true</div>
         </div>
         <div class="quote-card">
             <div class="quote-emoji">💕</div>
-            <div class="quote-text">"Mi corazón late al ritmo de tu amor"</div>
+            <div class="quote-text" data-es="Mi corazón late al ritmo de tu amor" data-en="My heart beats to the rhythm of your love">Mi corazón late al ritmo de tu amor</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">My heart beats to the rhythm of your love</div>
         </div>
         <div class="quote-card">
             <div class="quote-emoji">🦋</div>
-            <div class="quote-text">"Eres mi sol en los días nublados"</div>
+            <div class="quote-text" data-es="Eres mi sol en los días nublados" data-en="You are my sunshine on cloudy days">Eres mi sol en los días nublados</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">You are my sunshine on cloudy days</div>
         </div>
         <div class="quote-card">
             <div class="quote-emoji">💖</div>
-            <div class="quote-text">"Amarte es lo más hermoso que me ha pasado"</div>
+            <div class="quote-text" data-es="Amarte es lo más hermoso que me ha pasado" data-en="Loving you is the most beautiful thing that has happened to me">Amarte es lo más hermoso que me ha pasado</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">Loving you is the most beautiful thing that has happened to me</div>
+        </div>
+        <div class="quote-card">
+            <div class="quote-emoji">🌙</div>
+            <div class="quote-text" data-es="Eres mi estrella favorita en el cielo" data-en="You are my favorite star in the sky">Eres mi estrella favorita en el cielo</div>
+            <div class="quote-divider">✦ ✦ ✦</div>
+            <div class="quote-translation">You are my favorite star in the sky</div>
         </div>
     </div>
 
@@ -506,63 +571,4 @@
 
         for (let i = 0; i < 40; i++) {
             const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.top = Math.random() * 100 + '%';
-            heart.style.fontSize = (Math.random() * 25 + 10) + 'px';
-            heart.style.animationDelay = Math.random() * 8 + 's';
-            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
-            heartsBg.appendChild(heart);
-        }
-
-        // Add sparkle on click
-        document.addEventListener('click', (e) => {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = e.clientX + 'px';
-            sparkle.style.top = e.clientY + 'px';
-            sparkle.style.position = 'fixed';
-            document.body.appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 2000);
-        });
-
-        // Share function
-        async function sharePage() {
-            const shareData = {
-                title: 'I Love You 💕',
-                text: 'A special love message from Herbert Dev',
-                url: window.location.href
-            };
-
-            if (navigator.share) {
-                try {
-                    await navigator.share(shareData);
-                } catch (err) {
-                    console.log('Share cancelled');
-                }
-            } else {
-                copyLink();
-                alert('Link copied to clipboard! You can now paste it anywhere.');
-            }
-        }
-
-        // Copy link function
-        function copyLink() {
-            const dummy = document.createElement('input');
-            document.body.appendChild(dummy);
-            dummy.value = window.location.href;
-            dummy.select();
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
-
-            const btn = event.target;
-            const originalText = btn.innerText;
-            btn.innerText = '✅ Copied!';
-            setTimeout(() => {
-                btn.innerText = originalText;
-            }, 2000);
-        }
-    </script>
-</body>
-</html>
+            heart.cla
