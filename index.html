@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Wahida - Herbert Dev</title>
+    <meta property="og:title" content="I Love You Wahida 💕">
+    <meta property="og:description" content="A special message for Wahida from Herbert Dev">
+    <meta property="og:type" content="website">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #1a001a 0%, #0d000d 50%, #050005 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Fredoka', sans-serif;
+            position: relative;
+        }
+
+        /* Animated heart background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 20, 147, 0.15);
+            animation: floatHeart 8s ease-in-out infinite;
+            font-size: 20px;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.15; }
+            50% { transform: translateY(-30px) scale(1.2); opacity: 0.3; }
+        }
+
+        /* Glowing orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: orbFloat 6s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,20,147,0.4) 0%, transparent 70%);
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,105,180,0.3) 0%, transparent 70%);
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .orb-3 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,0,255,0.3) 0%, transparent 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.1); }
+            66% { transform: translate(-10px, 10px) scale(0.9); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header h1 {
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            text-shadow: 0 0 20px rgba(255,20,147,0.8), 0 0 40px rgba(255,20,147,0.4);
+            letter-spacing: 3px;
+        }
+
+        /* Main card */
+        .main-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 25px;
+            margin: 10px 20px;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255,20,147,0.2);
+            box-shadow: 0 0 30px rgba(255,20,147,0.1), inset 0 0 30px rgba(255,20,147,0.05);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Floating stickers container */
+        .stickers-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+        }
+
+        /* Glowing sun/moon */
+        .glow-sun {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ffeb3b 0%, #ff9800 40%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 60px #ffeb3b, 0 0 100px rgba(255,152,0,0.5);
+            animation: pulseGlow 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        /* Text bubbles */
+        .text-bubble {
+            position: absolute;
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 0 0 10px rgba(255,20,147,0.8);
+            animation: floatText 4s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .bubble-1 {
+            top: 10%;
+            left: 15%;
+            font-size: 1.2rem;
+            animation-delay: 0s;
+        }
+
+        .bubble-2 {
+            top: 15%;
+            right: 10%;
+            font-size: 1.5rem;
+            color: #ff69b4;
+            animation-delay: 1s;
+            text-align: center;
+        }
+
+        .bubble-3 {
+            bottom: 20%;
+            right: 10%;
+            font-size: 1.3rem;
+            animation-delay: 2s;
+        }
+
+        .bubble-4 {
+            bottom: 15%;
+            left: 20%;
+            font-size: 1.1rem;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        /* Character stickers */
+        .sticker {
+            position: absolute;
+            font-size: 3rem;
+            animation: bounceSticker 3s ease-in-out infinite;
+            z-index: 5;
+            filter: drop-shadow(0 0 10px rgba(255,20,147,0.5));
+        }
+
+        .sticker-1 {
+            top: 30%;
+            left: 20%;
+            animation-delay: 0.3s;
+        }
+
+        .sticker-2 {
+            top: 35%;
+            right: 25%;
+            animation-delay: 0.6s;
+        }
+
+        .sticker-3 {
+            bottom: 25%;
+            left: 35%;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes bounceSticker {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+
+        /* Heart decorations */
+        .deco-heart {
+            position: absolute;
+            color: #ff1493;
+            font-size: 1.5rem;
+            animation: heartBeat 2s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        .dh-1 { top: 5%; left: 45%; animation-delay: 0s; }
+        .dh-2 { top: 20%; right: 5%; animation-delay: 0.5s; }
+        .dh-3 { bottom: 30%; left: 5%; animation-delay: 1s; }
+        .dh-4 { top: 40%; left: 5%; animation-delay: 1.5s; }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
+            animation: sparkleAnim 2s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Share button */
+        .share-section {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .share-btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255,20,147,0.5);
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,20,147,0.8);
+        }
+
+        .share-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Bottom hearts decoration */
+        .bottom-hearts {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 0 20px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .bottom-heart {
+            color: rgba(255,20,147,0.3);
+            font-size: 1.5rem;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(0) rotate(-5deg); }
+            50% { transform: translateX(10px) rotate(5deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.5rem; }
+            .text-bubble { font-size: 1rem !important; }
+            .sticker { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background hearts -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Herbert Dev</h1>
+    </div>
+
+    <!-- Main love card -->
+    <div class="main-card">
+        <div class="stickers-container">
+            <!-- Glowing sun -->
+            <div class="glow-sun"></div>
+
+            <!-- Text bubbles -->
+            <div class="text-bubble bubble-1">I Love You<br>Wahida</div>
+            <div class="text-bubble bubble-2">Amor de mi<br>Vida<br>Wahida</div>
+            <div class="text-bubble bubble-3">Amor<br>de mi<br>Vida</div>
+            <div class="text-bubble bubble-4">Love</div>
+
+            <!-- Character stickers -->
+            <div class="sticker sticker-1">🕷️</div>
+            <div class="sticker sticker-2">😺</div>
+            <div class="sticker sticker-3">💕</div>
+
+            <!-- Decorative hearts -->
+            <div class="deco-heart dh-1">💖</div>
+            <div class="deco-heart dh-2">💗</div>
+            <div class="deco-heart dh-3">💝</div>
+            <div class="deco-heart dh-4">💘</div>
+
+            <!-- Sparkles -->
+            <div class="sparkle" style="top:20%;left:30%;"></div>
+            <div class="sparkle" style="top:60%;left:70%;animation-delay:0.5s;"></div>
+            <div class="sparkle" style="top:40%;left:50%;animation-delay:1s;"></div>
+            <div class="sparkle" style="top:70%;left:20%;animation-delay:1.5s;"></div>
+        </div>
+    </div>
+
+    <!-- Share section -->
+    <div class="share-section">
+        <button class="share-btn" onclick="sharePage()">📤 Share This Page</button>
+        <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+    </div>
+
+    <!-- Bottom hearts -->
+    <div class="bottom-hearts">
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+        <span class="bottom-heart">♥</span>
+    </div>
+
+    <script>
+        // Generate floating background hearts
+        const heartsBg = document.getElementById('heartsBg');
+        const heartSymbols = ['♥', '♡', '💕', '💖', '💗', '💘', '💝'];
+
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDelay = Math.random() * 8 + 's';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heartsBg.appendChild(heart);
+        }
+
+        // Add sparkle on click
+        document.addEventListener('click', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.position = 'fixed';
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 2000);
+        });
+
+        // Share function
+        async function sharePage() {
+            const shareData = {
+                title: 'I Love You Wahida 💕',
+                text: 'A special message for Wahida from Herbert Dev',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Share cancelled');
+                }
+            } else {
+                copyLink();
+                alert('Link copied to clipboard! You can now paste it anywhere.');
+            }
+        }
+
+        // Copy link function
+        function copyLink() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            // Show feedback
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = '✅ Copied!';
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
