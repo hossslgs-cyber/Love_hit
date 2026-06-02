@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You Wahida - Herbert Dev</title>
-    <meta property="og:title" content="I Love You Wahida 💕">
-    <meta property="og:description" content="A special message for Wahida from Herbert Dev">
+    <title>I Love You - Herbert Dev</title>
+    <meta property="og:title" content="I Love You 💕">
+    <meta property="og:description" content="A special love message from Herbert Dev">
     <meta property="og:type" content="website">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap');
 
         * {
             margin: 0;
@@ -160,33 +160,47 @@
         }
 
         .bubble-1 {
-            top: 10%;
-            left: 15%;
+            top: 8%;
+            left: 10%;
             font-size: 1.2rem;
             animation-delay: 0s;
         }
 
         .bubble-2 {
-            top: 15%;
-            right: 10%;
-            font-size: 1.5rem;
+            top: 12%;
+            right: 8%;
+            font-size: 1.4rem;
             color: #ff69b4;
             animation-delay: 1s;
             text-align: center;
         }
 
         .bubble-3 {
-            bottom: 20%;
-            right: 10%;
-            font-size: 1.3rem;
+            bottom: 18%;
+            right: 8%;
+            font-size: 1.2rem;
             animation-delay: 2s;
         }
 
         .bubble-4 {
-            bottom: 15%;
-            left: 20%;
+            bottom: 12%;
+            left: 15%;
             font-size: 1.1rem;
             animation-delay: 0.5s;
+        }
+
+        .bubble-5 {
+            top: 40%;
+            left: 5%;
+            font-size: 1rem;
+            animation-delay: 1.5s;
+        }
+
+        .bubble-6 {
+            top: 35%;
+            right: 5%;
+            font-size: 1rem;
+            animation-delay: 2.5s;
         }
 
         @keyframes floatText {
@@ -204,21 +218,39 @@
         }
 
         .sticker-1 {
-            top: 30%;
-            left: 20%;
+            top: 25%;
+            left: 15%;
             animation-delay: 0.3s;
         }
 
         .sticker-2 {
-            top: 35%;
-            right: 25%;
+            top: 30%;
+            right: 20%;
             animation-delay: 0.6s;
         }
 
         .sticker-3 {
-            bottom: 25%;
-            left: 35%;
+            bottom: 20%;
+            left: 30%;
             animation-delay: 0.9s;
+        }
+
+        .sticker-4 {
+            top: 10%;
+            left: 40%;
+            animation-delay: 1.2s;
+        }
+
+        .sticker-5 {
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 1.8s;
+        }
+
+        .sticker-6 {
+            top: 50%;
+            left: 8%;
+            animation-delay: 2.1s;
         }
 
         @keyframes bounceSticker {
@@ -239,6 +271,8 @@
         .dh-2 { top: 20%; right: 5%; animation-delay: 0.5s; }
         .dh-3 { bottom: 30%; left: 5%; animation-delay: 1s; }
         .dh-4 { top: 40%; left: 5%; animation-delay: 1.5s; }
+        .dh-5 { bottom: 10%; right: 40%; animation-delay: 0.8s; }
+        .dh-6 { top: 55%; right: 3%; animation-delay: 1.2s; }
 
         @keyframes heartBeat {
             0%, 100% { transform: scale(1); }
@@ -260,6 +294,48 @@
         @keyframes sparkleAnim {
             0%, 100% { opacity: 0; transform: scale(0); }
             50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Love Quotes Section */
+        .quotes-section {
+            margin: 15px 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .quote-card {
+            background: rgba(255, 20, 147, 0.1);
+            border: 1px solid rgba(255, 20, 147, 0.2);
+            border-radius: 20px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .quote-card:nth-child(2) { animation-delay: 0.2s; }
+        .quote-card:nth-child(3) { animation-delay: 0.4s; }
+        .quote-card:nth-child(4) { animation-delay: 0.6s; }
+        .quote-card:nth-child(5) { animation-delay: 0.8s; }
+
+        .quote-text {
+            color: #ffb6c1;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+        }
+
+        .quote-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Share button */
@@ -322,8 +398,9 @@
         /* Responsive */
         @media (max-width: 480px) {
             .header h1 { font-size: 1.5rem; }
-            .text-bubble { font-size: 1rem !important; }
+            .text-bubble { font-size: 0.95rem !important; }
             .sticker { font-size: 2.5rem; }
+            .quote-text { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -348,27 +425,60 @@
             <div class="glow-sun"></div>
 
             <!-- Text bubbles -->
-            <div class="text-bubble bubble-1">I Love You<br>Wahida</div>
-            <div class="text-bubble bubble-2">Amor de mi<br>Vida<br>Wahida</div>
-            <div class="text-bubble bubble-3">Amor<br>de mi<br>Vida</div>
-            <div class="text-bubble bubble-4">Love</div>
+            <div class="text-bubble bubble-1">I Love You</div>
+            <div class="text-bubble bubble-2">Amor de mi<br>Vida</div>
+            <div class="text-bubble bubble-3">Te Amo<br>Mi Cielo</div>
+            <div class="text-bubble bubble-4">Love You<br>Forever</div>
+            <div class="text-bubble bubble-5">Eres mi<br>todo</div>
+            <div class="text-bubble bubble-6">Mi Corazon<br>es tuyo</div>
 
             <!-- Character stickers -->
             <div class="sticker sticker-1">🕷️</div>
             <div class="sticker sticker-2">😺</div>
             <div class="sticker sticker-3">💕</div>
+            <div class="sticker sticker-4">🌹</div>
+            <div class="sticker sticker-5">🦋</div>
+            <div class="sticker sticker-6">💫</div>
 
             <!-- Decorative hearts -->
             <div class="deco-heart dh-1">💖</div>
             <div class="deco-heart dh-2">💗</div>
             <div class="deco-heart dh-3">💝</div>
             <div class="deco-heart dh-4">💘</div>
+            <div class="deco-heart dh-5">💓</div>
+            <div class="deco-heart dh-6">💞</div>
 
             <!-- Sparkles -->
             <div class="sparkle" style="top:20%;left:30%;"></div>
             <div class="sparkle" style="top:60%;left:70%;animation-delay:0.5s;"></div>
             <div class="sparkle" style="top:40%;left:50%;animation-delay:1s;"></div>
             <div class="sparkle" style="top:70%;left:20%;animation-delay:1.5s;"></div>
+            <div class="sparkle" style="top:15%;left:60%;animation-delay:0.8s;"></div>
+            <div class="sparkle" style="top:80%;left:50%;animation-delay:1.2s;"></div>
+        </div>
+    </div>
+
+    <!-- Love Quotes Section -->
+    <div class="quotes-section">
+        <div class="quote-card">
+            <div class="quote-emoji">💫</div>
+            <div class="quote-text">"Eres la razón por la que sonrío cada día"</div>
+        </div>
+        <div class="quote-card">
+            <div class="quote-emoji">🌹</div>
+            <div class="quote-text">"Contigo, cada momento es un sueño hecho realidad"</div>
+        </div>
+        <div class="quote-card">
+            <div class="quote-emoji">💕</div>
+            <div class="quote-text">"Mi corazón late al ritmo de tu amor"</div>
+        </div>
+        <div class="quote-card">
+            <div class="quote-emoji">🦋</div>
+            <div class="quote-text">"Eres mi sol en los días nublados"</div>
+        </div>
+        <div class="quote-card">
+            <div class="quote-emoji">💖</div>
+            <div class="quote-text">"Amarte es lo más hermoso que me ha pasado"</div>
         </div>
     </div>
 
@@ -392,15 +502,15 @@
     <script>
         // Generate floating background hearts
         const heartsBg = document.getElementById('heartsBg');
-        const heartSymbols = ['♥', '♡', '💕', '💖', '💗', '💘', '💝'];
+        const heartSymbols = ['♥', '♡', '💕', '💖', '💗', '💘', '💝', '💓', '💞', '💟'];
 
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 40; i++) {
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
             heart.style.left = Math.random() * 100 + '%';
             heart.style.top = Math.random() * 100 + '%';
-            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.fontSize = (Math.random() * 25 + 10) + 'px';
             heart.style.animationDelay = Math.random() * 8 + 's';
             heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
             heartsBg.appendChild(heart);
@@ -420,8 +530,8 @@
         // Share function
         async function sharePage() {
             const shareData = {
-                title: 'I Love You Wahida 💕',
-                text: 'A special message for Wahida from Herbert Dev',
+                title: 'I Love You 💕',
+                text: 'A special love message from Herbert Dev',
                 url: window.location.href
             };
 
@@ -446,7 +556,6 @@
             document.execCommand('copy');
             document.body.removeChild(dummy);
 
-            // Show feedback
             const btn = event.target;
             const originalText = btn.innerText;
             btn.innerText = '✅ Copied!';
